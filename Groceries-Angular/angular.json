@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Groceries": {
+    "Groceries-Angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Groceries",
+            "outputPath": "dist/Groceries-Angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Groceries:build"
+            "browserTarget": "Groceries-Angular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Groceries:build:production"
+              "browserTarget": "Groceries-Angular:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Groceries:build"
+            "browserTarget": "Groceries-Angular:build"
           }
         },
         "test": {
@@ -111,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Groceries:serve"
+            "devServerTarget": "Groceries-Angular:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Groceries:serve:production"
+              "devServerTarget": "Groceries-Angular:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "Groceries"
+  "defaultProject": "Groceries-Angular"
 }
