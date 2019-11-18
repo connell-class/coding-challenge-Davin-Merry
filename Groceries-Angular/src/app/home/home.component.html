@@ -1,19 +1,19 @@
 <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" id="pills-lists-tab" data-toggle="pill" href="#pills-lists" role="tab" aria-controls="pills-lists" aria-selected="true">Lists</a>
+        <a class="nav-link active" id="pills-lists-tab" data-toggle="pill" href="#lists" role="tab" aria-controls="pills-lists" aria-selected="true">Lists</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="pills-newlist-tab" data-toggle="pill" href="#pills-newlist" role="tab" aria-controls="pills-newlist" aria-selected="false">New Grocery List</a>
+        <a class="nav-link" id="pills-newlist-tab" data-toggle="pill" href="#newlist" role="tab" aria-controls="pills-newlist" aria-selected="false">New Grocery List</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="pills-about-tab" data-toggle="pill" href="#pills-about" role="tab" aria-controls="pills-about" aria-selected="false">?</a>
+        <a class="nav-link" id="pills-about-tab" data-toggle="pill" href="#about" role="tab" aria-controls="pills-about" aria-selected="false">?</a>
     </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-lists" role="tabpanel" aria-labelledby="pills-lists-tab">
+    <div class="tab-pane fade show active" id="lists" role="tabpanel" aria-labelledby="pills-lists-tab">
         <app-list></app-list>
     </div>
-    <div class="tab-pane fade" id="pills-newlist" role="tabpanel" aria-labelledby="pills-newlist-tab">
+    <div class="tab-pane fade" id="newlist" role="tabpanel" aria-labelledby="pills-newlist-tab">
         <form #newList=ngForm (ngSubmit)="createList(newList)">
             <div class="new-list">
                 <div class="input-group mb-3">
@@ -24,12 +24,13 @@
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-outline-primary">Create</button>
                     </div>
-                    <div *ngIf="alertActive">{{alertText}}</div>
                 </div>
             </div>
         </form>
+        <br>
+        <div *ngIf="alertActive">{{alertText}}</div>
     </div>
-    <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
+    <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="pills-about-tab">
         <div class="about-this">
             Created by Davin Merry<br>
             (2019)

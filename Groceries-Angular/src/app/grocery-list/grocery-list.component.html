@@ -27,13 +27,52 @@
 
 <div class="card text-center">
     <div class="card-header">
-        {{listInfo.name}}
+        <a href="javascript:void(0);" (click)="editMode()">{{listInfo.name}}</a>
     </div>
     <div class="card-body">
         <h5 class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <div>
+            <div style="max-height: 200px; overflow-y:scroll;">
+                <ul class="list-group" *ngFor="let item of listInfo.groceries">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{item.name}}
+                        <span class="badge badge-primary badge-pill">{{item.type}}</span>
+                        <!--<span class="badge badge-danger">X</span>-->
+                    </li>
+                </ul>
+            </div>
+            <!--If the title was clicked, then this will show up.-->
+            <div *ngIf="editEnabled">
+                <div class="list-creator">
+                    <h3>Add Grocery Item</h3>
+                    <form #newItem=ngForm (ngSubmit)="submitItem(newItem)">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="groceryName">Grocery Item</span>
+                            </div>
+                            <input type="text" class="form-control" name="item" placeholder="Item" aria-label="Item" aria-describedby="groceryName" ngModel>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <label class="input-group-text" for="groceryType">Type</label>
+                            </div>
+                            <select class="custom-select" name="type" id="inputGroupSelect01" ngModel>
+                                <option value="0">Food</option>
+                                <option value="1">Electronics</option>
+                                <option value="2">Clothing</option>
+                                <option value="3">Cosmetics</option>
+                                <option value="4">Toy</option>
+                                <option value="5">Healthcare</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-footer text-muted">
         {{listInfo.groceries.length}} items
     </div>
 </div>
+<div style="padding-bottom: 10px"></div>

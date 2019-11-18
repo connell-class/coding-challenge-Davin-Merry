@@ -1,5 +1,7 @@
 package com.challenge.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,9 +39,14 @@ public class GroceryListController {
 		}
 	}
 	
-	@PostMapping("items/add")
-	public boolean addItemToList(@RequestBody GroceryItem gi) {
+	@PostMapping("items/add/{id}")
+	public boolean addItemToList(@RequestBody GroceryItem gi, @PathVariable int id) {
 		try {
+			Optional<GroceryList> gl = gr.findById(id);
+			GroceryList gl1 = gl.get();
+			gi.setGroceryList(gl1);
+			gl1.getGroceries().add(gi);
+			gr.save(gl1);
 			return true;
 		} catch (Exception e) {
 			return false;

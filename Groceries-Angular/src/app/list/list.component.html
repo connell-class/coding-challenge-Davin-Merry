@@ -3,11 +3,7 @@
 </div>
 
 <div *ngIf="listAmount">
-    <div class="row">
-        <div *ngFor="let l of list">
-            <div class="column">
-                <app-grocery-list [listInfo]="l"></app-grocery-list>
-            </div>
-        </div>
+    <div *ngFor="let l of list">
+        <app-grocery-list [listInfo]="l"></app-grocery-list>
     </div>
 </div>

@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 enum GroceryType {
 	FOOD, ELECTRONICS, CLOTHING, COSMETICS, TOYS, HEALTHCARE
 }
@@ -25,6 +27,7 @@ public class GroceryItem {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="grocery_list")
+	@JsonIgnore
 	private GroceryList groceryList;
 
 	public int getId() {
