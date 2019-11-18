@@ -1,1 +1,39 @@
-<p>grocery-list works!</p>
+<div *ngIf="createMode">
+    <div class="list-creator">
+        <h2>Grocery List (name goes here)</h2>
+        <form #newItem=ngForm (ngSubmit)="submitItem(newItem)">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="groceryName">Grocery Item</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Item" aria-label="Item" aria-describedby="groceryName">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="groceryType">Type</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option value="0">Food</option>
+                    <option value="1">Electronics</option>
+                    <option value="2">Clothing</option>
+                    <option value="3">Cosmetics</option>
+                    <option value="4">Toy</option>
+                    <option value="5">Healthcare</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        {{listInfo.name}}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    </div>
+    <div class="card-footer text-muted">
+        {{listInfo.groceries.length}} items
+    </div>
+</div>
